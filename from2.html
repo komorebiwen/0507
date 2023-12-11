@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>睡綿小羊商城問答</title>
+</head>
+<body>
+    <h1>睡綿小羊商城問答</h1>
+    <input type="text" id="query" placeholder="輸入你要問的問題">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbyvPSE2_xv9t0YolUovUH17dmSWvKrNlQe9n6d7ehV-3P3H9va_L7cl5zIyr2iRNUJ1cA/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
